@@ -2,17 +2,20 @@
   "functions": {
     "file-read": [
       {
-        "code": "fold -w99999999 [file]\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nfold -w99999999 \"$LFILE\"\n"
       }
     ],
     "suid": [
       {
-        "code": "./fold -w99999999 [file]\n"
+        "description": "",
+        "code": "LFILE=file_to_read\n./fold -w99999999 \"$LFILE\"\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo fold -w99999999 [file]\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nsudo fold -w99999999 \"$LFILE\"\n"
       }
     ]
   }

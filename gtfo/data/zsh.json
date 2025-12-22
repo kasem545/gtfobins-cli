@@ -2,27 +2,32 @@
   "functions": {
     "file-read": [
       {
-        "code": "zsh -c 'echo \"$(<[file])\"'\n"
+        "description": "",
+        "code": "export LFILE=file_to_read\nzsh -c 'echo \"$(<$LFILE)\"'\n"
       }
     ],
     "file-write": [
       {
-        "code": "zsh -c 'echo [data] >[file]'\n"
+        "description": "",
+        "code": "export LFILE=file_to_write\nzsh -c 'echo DATA >$LFILE'\n"
       }
     ],
     "shell": [
       {
-        "code": "zsh"
+        "description": "",
+        "code": "zsh\n"
       }
     ],
     "suid": [
       {
-        "code": "./zsh"
+        "description": "",
+        "code": "./zsh\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo zsh"
+        "description": "",
+        "code": "sudo zsh\n"
       }
     ]
   }

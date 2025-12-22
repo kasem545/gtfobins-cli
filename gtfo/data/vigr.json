@@ -1,0 +1,16 @@
+{
+  "functions": {
+    "suid": [
+      {
+        "description": "",
+        "code": "./vigr\n"
+      }
+    ],
+    "sudo": [
+      {
+        "description": "",
+        "code": "sudo vigr\n"
+      }
+    ]
+  }
+}

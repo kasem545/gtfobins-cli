@@ -2,17 +2,20 @@
   "functions": {
     "file-read": [
       {
-        "code": "sort -m [file]\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nsort -m \"$LFILE\"\n"
       }
     ],
     "suid": [
       {
-        "code": "./sort -m [file]\n"
+        "description": "",
+        "code": "LFILE=file_to_read\n./sort -m \"$LFILE\"\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo sort -m [file]\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nsudo sort -m \"$LFILE\"\n"
       }
     ]
   }

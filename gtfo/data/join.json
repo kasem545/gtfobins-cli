@@ -2,17 +2,20 @@
   "functions": {
     "file-read": [
       {
-        "code": "join -a 2 /dev/null [file]\n"
+        "description": "",
+        "code": "LFILE=file_to_read\njoin -a 2 /dev/null $LFILE\n"
       }
     ],
     "suid": [
       {
-        "code": "join -a 2 /dev/null [file]\n"
+        "description": "",
+        "code": "LFILE=file_to_read\n./join -a 2 /dev/null $LFILE\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo join -a 2 /dev/null [file]\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nsudo join -a 2 /dev/null $LFILE\n"
       }
     ]
   }

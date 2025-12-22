@@ -2,12 +2,14 @@
   "functions": {
     "shell": [
       {
-        "code": "ghc -e 'System.Process.callCommand \"/bin/sh\"'"
+        "description": "",
+        "code": "ghc -e 'System.Process.callCommand \"/bin/sh\"'\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo ghc -e 'System.Process.callCommand \"/bin/sh\"'"
+        "description": "",
+        "code": "sudo ghc -e 'System.Process.callCommand \"/bin/sh\"'\n"
       }
     ]
   }

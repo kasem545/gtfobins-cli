@@ -1,0 +1,16 @@
+{
+  "functions": {
+    "shell": [
+      {
+        "description": "",
+        "code": "jtag --interactive\nshell /bin/sh\n"
+      }
+    ],
+    "sudo": [
+      {
+        "description": "",
+        "code": "sudo jtag --interactive\nshell /bin/sh\n"
+      }
+    ]
+  }
+}

@@ -2,17 +2,20 @@
   "functions": {
     "shell": [
       {
-        "code": "cpulimit -l 100 -f /bin/sh"
+        "description": "",
+        "code": "cpulimit -l 100 -f /bin/sh\n"
       }
     ],
     "suid": [
       {
-        "code": "./cpulimit -l 100 -f -- /bin/sh -p"
+        "description": "",
+        "code": "./cpulimit -l 100 -f -- /bin/sh -p\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo cpulimit -l 100 -f /bin/sh"
+        "description": "",
+        "code": "sudo cpulimit -l 100 -f /bin/sh\n"
       }
     ]
   }

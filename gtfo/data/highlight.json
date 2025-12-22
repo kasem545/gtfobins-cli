@@ -2,17 +2,20 @@
   "functions": {
     "file-read": [
       {
-        "code": "highlight --no-doc --failsafe \"[file]\"\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nhighlight --no-doc --failsafe \"$LFILE\"\n"
       }
     ],
     "suid": [
       {
-        "code": "./highlight --no-doc --failsafe \"[file]\"\n"
+        "description": "",
+        "code": "LFILE=file_to_read\n./highlight --no-doc --failsafe \"$LFILE\"\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo highlight --no-doc --failsafe \"[file]\"\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nsudo highlight --no-doc --failsafe \"$LFILE\"\n"
       }
     ]
   }

@@ -2,17 +2,20 @@
   "functions": {
     "file-read": [
       {
-        "code": "unexpand -t99999999 [file]\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nunexpand -t99999999 \"$LFILE\"\n"
       }
     ],
     "suid": [
       {
-        "code": "./unexpand -t99999999 [file]\n"
+        "description": "",
+        "code": "LFILE=file_to_read\n./unexpand -t99999999 \"$LFILE\"\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo unexpand -t99999999 [file]\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nsudo unexpand -t99999999 \"$LFILE\"\n"
       }
     ]
   }

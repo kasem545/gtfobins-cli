@@ -2,22 +2,26 @@
   "functions": {
     "file-write": [
       {
-        "code": "echo DATA | xxd | xxd -r - [file]\n"
+        "description": "",
+        "code": "LFILE=file_to_write\necho DATA | xxd | xxd -r - \"$LFILE\"\n"
       }
     ],
     "file-read": [
       {
-        "code": "xxd [file] | xxd -r\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nxxd \"$LFILE\" | xxd -r\n"
       }
     ],
     "suid": [
       {
-        "code": "./xxd [file] | xxd -r\n"
+        "description": "",
+        "code": "LFILE=file_to_read\n./xxd \"$LFILE\" | xxd -r\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo xxd [file] | xxd -r\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nsudo xxd \"$LFILE\" | xxd -r\n"
       }
     ]
   }

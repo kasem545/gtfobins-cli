@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        "description": "",
+        "code": "yash\n"
+      }
+    ],
+    "suid": [
+      {
+        "description": "",
+        "code": "./yash\n"
+      }
+    ],
+    "sudo": [
+      {
+        "description": "",
+        "code": "sudo yash\n"
+      }
+    ]
+  }
+}

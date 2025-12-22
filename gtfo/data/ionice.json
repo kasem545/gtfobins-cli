@@ -2,17 +2,20 @@
   "functions": {
     "shell": [
       {
-        "code": "ionice /bin/sh"
+        "description": "",
+        "code": "ionice /bin/sh\n"
       }
     ],
     "suid": [
       {
-        "code": "./ionice /bin/sh -p"
+        "description": "",
+        "code": "./ionice /bin/sh -p\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo ionice /bin/sh"
+        "description": "",
+        "code": "sudo ionice /bin/sh\n"
       }
     ]
   }

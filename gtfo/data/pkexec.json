@@ -2,7 +2,8 @@
   "functions": {
     "sudo": [
       {
-        "code": "sudo pkexec /bin/sh"
+        "description": "",
+        "code": "sudo pkexec /bin/sh\n"
       }
     ]
   }

@@ -2,17 +2,20 @@
   "functions": {
     "file-read": [
       {
-        "code": "cat [file]\n"
+        "description": "",
+        "code": "LFILE=file_to_read\ncat \"$LFILE\"\n"
       }
     ],
     "suid": [
       {
-        "code": "./cat [file]\n"
+        "description": "",
+        "code": "LFILE=file_to_read\n./cat \"$LFILE\"\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo cat [file]\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nsudo cat \"$LFILE\"\n"
       }
     ]
   }

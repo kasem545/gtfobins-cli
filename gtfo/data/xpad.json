@@ -1,0 +1,16 @@
+{
+  "functions": {
+    "file-read": [
+      {
+        "description": "",
+        "code": "LFILE=file_to_read\nxpad -f \"$LFILE\"\n"
+      }
+    ],
+    "sudo": [
+      {
+        "description": "",
+        "code": "LFILE=file_to_read\nsudo xpad -f \"$LFILE\"\n"
+      }
+    ]
+  }
+}

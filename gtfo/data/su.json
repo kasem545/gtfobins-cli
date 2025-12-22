@@ -2,7 +2,8 @@
   "functions": {
     "sudo": [
       {
-        "code": "sudo su"
+        "description": "",
+        "code": "sudo su\n"
       }
     ]
   }

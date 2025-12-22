@@ -1,13 +1,14 @@
 {
-  "description": "This invokes the default pager, which is likely to be 'less', other functions may apply.",
   "functions": {
     "shell": [
       {
+        "description": "",
         "code": "psql\n\\?\n!/bin/sh\n"
       }
     ],
     "sudo": [
       {
+        "description": "",
         "code": "psql\n\\?\n!/bin/sh\n"
       }
     ]

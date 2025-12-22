@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "shell": [
+      {
+        "description": "",
+        "code": "TF=$(mktemp)\necho 'os.execute(\"/bin/sh\")' >$TF\ntshark -Xlua_script:$TF\n"
+      }
+    ]
+  }
+}

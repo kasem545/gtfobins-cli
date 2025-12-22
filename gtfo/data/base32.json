@@ -2,17 +2,20 @@
   "functions": {
     "file-read": [
       {
-        "code": "base32 \"[file]\" | base32 --decode\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nbase32 \"$LFILE\" | base32 --decode\n"
       }
     ],
     "suid": [
       {
-        "code": "base32 \"[file]\" | base32 --decode\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nbase32 \"$LFILE\" | base32 --decode\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo base32 \"[file]\" | base32 --decode\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nsudo base32 \"$LFILE\" | base32 --decode\n"
       }
     ]
   }

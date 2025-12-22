@@ -1,19 +1,21 @@
 {
-  "description": "This only returns ASCII strings, thus it is not suitable for binary files.",
   "functions": {
     "file-read": [
       {
-        "code": "strings \"[file]\"\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nstrings \"$LFILE\"\n"
       }
     ],
     "suid": [
       {
-        "code": "./strings \"[file]\"\n"
+        "description": "",
+        "code": "LFILE=file_to_read\n./strings \"$LFILE\"\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo strings \"[file]\"\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nsudo strings \"$LFILE\"\n"
       }
     ]
   }

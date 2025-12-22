@@ -1,0 +1,16 @@
+{
+  "functions": {
+    "file-read": [
+      {
+        "description": "",
+        "code": "LFILE=file_to_read\nfping -f $LFILE\n"
+      }
+    ],
+    "sudo": [
+      {
+        "description": "",
+        "code": "LFILE=file_to_read\nsudo fping -f $LFILE\n"
+      }
+    ]
+  }
+}

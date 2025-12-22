@@ -2,23 +2,26 @@
   "functions": {
     "file-write": [
       {
-        "description": "The data to be written appears amid the syscall log, quoted and with special characters escaped in octal notation. The string representation will be truncated, pick a value big enough. More generally, any binary that executes whatever syscall passing arbitrary data can be used in place of 'strace - [data]'.",
-        "code": "strace -s 999 -o [file] strace - [data]\n"
+        "description": "The data to be written appears amid the syscall log, quoted and with special characters escaped in octal notation. The string representation will be truncated, pick a value big enough. More generally, any binary that executes whatever syscall passing arbitrary data can be used in place of `strace - DATA`.",
+        "code": "LFILE=file_to_write\nstrace -s 999 -o $LFILE strace - DATA\n"
       }
     ],
     "shell": [
       {
-        "code": "strace -o /dev/null /bin/sh"
+        "description": "",
+        "code": "strace -o /dev/null /bin/sh\n"
       }
     ],
     "suid": [
       {
-        "code": "./strace -o /dev/null /bin/sh -p"
+        "description": "",
+        "code": "./strace -o /dev/null /bin/sh -p\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo strace -o /dev/null /bin/sh"
+        "description": "",
+        "code": "sudo strace -o /dev/null /bin/sh\n"
       }
     ]
   }

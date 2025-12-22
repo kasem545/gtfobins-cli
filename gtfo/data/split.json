@@ -2,17 +2,28 @@
   "functions": {
     "file-read": [
       {
-        "code": "TF=$(mktemp)\nsplit [file] $TF\ncat $TF*\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nTF=$(mktemp)\nsplit $LFILE $TF\ncat $TF*\n"
+      }
+    ],
+    "file-write": [
+      {
+        "description": "Data will be written in the current directory in a file named `xaa` by default. The input file will be split in multiple smaller files unless the `-b` option is used, pick a value in MB big enough.",
+        "code": "TF=$(mktemp)\necho DATA >$TF\nsplit -b999m $TF\n"
+      },
+      {
+        "description": "GNU version only. Data will be written in the current directory in a file named `xaa.xxx` by default. The input file will be split in multiple smaller files unless the `-b` option is used, pick a value in MB big enough.",
+        "code": "EXT=.xxx\nTF=$(mktemp)\necho DATA >$TF\nsplit -b999m --additional-suffix $EXTENSION $TF\n"
       }
     ],
     "command": [
       {
         "description": "Command execution using an existing or newly created file.",
-        "code": "TF=$(mktemp)\nsplit --filter=[command] $TF\n"
+        "code": "COMMAND=id\nTF=$(mktemp)\nsplit --filter=$COMMAND $TF\n"
       },
       {
         "description": "Command execution using stdin (and close it directly).",
-        "code": "echo | split --filter=[command] /dev/stdin\n"
+        "code": "COMMAND=id\necho | split --filter=$COMMAND /dev/stdin\n"
       }
     ],
     "shell": [
@@ -24,7 +35,7 @@
     "sudo": [
       {
         "description": "The shell prompt is not printed.",
-        "code": "split --filter=/bin/sh /dev/stdin\n"
+        "code": "sudo split --filter=/bin/sh /dev/stdin\n"
       }
     ]
   }

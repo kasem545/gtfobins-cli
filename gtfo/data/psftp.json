@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        "description": "",
+        "code": "psftp\n!/bin/sh\n"
+      }
+    ],
+    "limited-suid": [
+      {
+        "description": "",
+        "code": "sudo psftp\n!/bin/sh\n"
+      }
+    ],
+    "sudo": [
+      {
+        "description": "",
+        "code": "sudo psftp\n!/bin/sh\n"
+      }
+    ]
+  }
+}

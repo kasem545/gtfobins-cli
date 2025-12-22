@@ -2,12 +2,14 @@
   "functions": {
     "file-read": [
       {
-        "code": "lwp-request \"file://[file]\"\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nlwp-request \"file://$LFILE\"\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo lwp-request \"file://[file]\"\n"
+        "description": "",
+        "code": "LFILE=file_to_read\nsudo lwp-request \"file://$LFILE\"\n"
       }
     ]
   }

@@ -1,22 +1,24 @@
 {
-  "description": "This invokes the default pager, which is likely to be  'less', other functions may apply.",
   "functions": {
     "shell": [
       {
+        "description": "",
         "code": "man man\n!/bin/sh\n"
       },
       {
-        "description": "This only works for GNU 'man' and requires GNU 'troff' to be installed.",
+        "description": "This only works for GNU `man` and requires GNU `troff` (`groff` to be installed).",
         "code": "man '-H/bin/sh #' man\n"
       }
     ],
     "file-read": [
       {
-        "code": "man [file]"
+        "description": "",
+        "code": "man file_to_read\n"
       }
     ],
     "sudo": [
       {
+        "description": "",
         "code": "sudo man man\n!/bin/sh\n"
       }
     ]

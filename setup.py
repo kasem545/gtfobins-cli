@@ -6,10 +6,12 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='gtfobins-cli',
-    version='1.0.0',
-    url='https://github.com/t0thkr1s/gtfo',
+    version='1.1.0',
+    url='https://github.com/kasem545/gtfobins-cli',
     author='t0thkr1s',
     author_email='t0thkr1s@icloud.com',
+    maintainer='kasem545',
+    maintainer_email='kasem545@proton.me',
     description='Command-line tool for GTFOBins - Unix binaries exploitation helper',
     long_description=long_description,
     long_description_content_type='text/markdown',

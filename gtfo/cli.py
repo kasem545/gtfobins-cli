@@ -179,32 +179,59 @@ def run(binary=None):
 
     if args:
         if args.interactive:
+            if args.list_all or args.search or args.binary or args.exploit_type:
+                print(fail.safe_substitute(text="Interactive mode cannot be combined with other options"))
+                return
             interactive_mode()
             return
 
+        if args.binary and (args.list_all or args.search):
+            print(fail.safe_substitute(text="Cannot combine binary with -l/--list or -s/--search"))
+            return
+
+        if args.list_all and args.search:
+            print(fail.safe_substitute(text="Cannot combine -l/--list with -s/--search"))
+            return
+
+        if args.exploit_type and args.exploit_type not in EXPLOIT_TYPES:
+            print(fail.safe_substitute(text=f"Unknown type '{args.exploit_type}'"))
+            print(info.safe_substitute(text=f"Valid types: {', '.join(EXPLOIT_TYPES)}"))
+            return
+
         if args.list_all:
-            binaries = get_all_binaries()
-            print(info.safe_substitute(text=f"Available binaries ({len(binaries)}):"))
-            print()
-            print_binary_list(binaries)
+            if args.exploit_type:
+                binaries = get_binaries_with_type(args.exploit_type)
+                label = f"Binaries with '{args.exploit_type}'"
+            else:
+                binaries = get_all_binaries()
+                label = "Available binaries"
+            if binaries:
+                print(info.safe_substitute(text=f"{label} ({len(binaries)}):"))
+                print()
+                print_binary_list(binaries)
+            else:
+                print(fail.safe_substitute(text=f"No binaries with '{args.exploit_type}'"))
             return
 
         if args.search:
-            binaries = get_all_binaries()
-            matches = fuzzy_match(args.search, binaries)
+            pool = get_binaries_with_type(args.exploit_type) if args.exploit_type else get_all_binaries()
+            matches = fuzzy_match(args.search, pool)
             if matches:
-                print(info.safe_substitute(text=f"Search results for '{args.search}' ({len(matches)} matches):"))
+                if args.exploit_type:
+                    label = f"Search '{args.search}' in '{args.exploit_type}'"
+                else:
+                    label = f"Search results for '{args.search}'"
+                print(info.safe_substitute(text=f"{label} ({len(matches)} matches):"))
                 print()
                 print_binary_list(matches)
             else:
-                print(fail.safe_substitute(text=f"No binaries matching '{args.search}'"))
+                if args.exploit_type:
+                    print(fail.safe_substitute(text=f"No '{args.exploit_type}' binaries matching '{args.search}'"))
+                else:
+                    print(fail.safe_substitute(text=f"No binaries matching '{args.search}'"))
             return
 
-        if args.exploit_type:
-            if args.exploit_type not in EXPLOIT_TYPES:
-                print(fail.safe_substitute(text=f"Unknown type '{args.exploit_type}'"))
-                print(info.safe_substitute(text=f"Valid types: {', '.join(EXPLOIT_TYPES)}"))
-                return
+        if args.exploit_type and not args.binary:
             binaries = get_binaries_with_type(args.exploit_type)
             if binaries:
                 print(info.safe_substitute(text=f"Binaries with '{args.exploit_type}' ({len(binaries)}):"))

@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "genie -c '/bin/sh'\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "./genie -c '/bin/sh'\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo genie -c '/bin/sh'\n"
+      }
+    ]
+  }
+}

@@ -2,17 +2,20 @@
   "functions": {
     "file-read": [
       {
-        "code": "xz -c \"[file]\" | xz -d\n"
+        
+        "code": "LFILE=file_to_read\nxz -c \"$LFILE\" | xz -d\n"
       }
     ],
     "suid": [
       {
-        "code": "./xz -c \"[file]\" | xz -d\n"
+        
+        "code": "LFILE=file_to_read\n./xz -c \"$LFILE\" | xz -d\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo xz -c \"[file]\" | xz -d\n"
+        
+        "code": "LFILE=file_to_read\nsudo xz -c \"$LFILE\" | xz -d\n"
       }
     ]
   }

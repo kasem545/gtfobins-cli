@@ -1,0 +1,16 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "ansible-test shell\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo ansible-test shell\n"
+      }
+    ]
+  }
+}

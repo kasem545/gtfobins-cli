@@ -1,0 +1,16 @@
+{
+  "functions": {
+    "suid": [
+      {
+        
+        "code": "./vipw\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo vipw\n"
+      }
+    ]
+  }
+}

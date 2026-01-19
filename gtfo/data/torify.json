@@ -1,0 +1,16 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "torify /bin/sh\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo torify /bin/sh\n"
+      }
+    ]
+  }
+}

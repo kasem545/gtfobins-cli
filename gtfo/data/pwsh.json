@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "pwsh\n"
+      }
+    ],
+    "file-write": [
+      {
+        
+        "code": "export LFILE=file_to_write\npwsh -c '\"DATA\" | Out-File $env:LFILE'\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo pwsh\n"
+      }
+    ]
+  }
+}

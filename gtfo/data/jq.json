@@ -2,17 +2,20 @@
   "functions": {
     "file-read": [
       {
-        "code": "jq -Rr . [file]\n"
+        
+        "code": "LFILE=file_to_read\njq -Rr . \"$LFILE\"\n"
       }
     ],
     "suid": [
       {
-        "code": "./jq -Rr . [file]\n"
+        
+        "code": "LFILE=file_to_read\n./jq -Rr . \"$LFILE\"\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo jq -Rr . [file]\n"
+        
+        "code": "LFILE=file_to_read\nsudo jq -Rr . \"$LFILE\"\n"
       }
     ]
   }

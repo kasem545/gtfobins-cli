@@ -2,12 +2,14 @@
   "functions": {
     "shell": [
       {
-        "code": "nsenter /bin/sh"
+        
+        "code": "nsenter /bin/sh\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo nsenter /bin/sh"
+        
+        "code": "sudo nsenter /bin/sh\n"
       }
     ]
   }

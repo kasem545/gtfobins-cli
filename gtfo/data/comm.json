@@ -2,17 +2,20 @@
   "functions": {
     "file-read": [
       {
-        "code": "comm [file] /dev/null 2>/dev/null\n"
+        
+        "code": "LFILE=file_to_read\ncomm $LFILE /dev/null 2>/dev/null\n"
       }
     ],
     "suid": [
       {
-        "code": "comm [file] /dev/null 2>/dev/null\n"
+        
+        "code": "LFILE=file_to_read\ncomm $LFILE /dev/null 2>/dev/null\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo comm [file] /dev/null 2>/dev/null\n"
+        
+        "code": "LFILE=file_to_read\nsudo comm $LFILE /dev/null 2>/dev/null\n"
       }
     ]
   }

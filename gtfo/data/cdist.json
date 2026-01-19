@@ -1,0 +1,16 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "cdist shell -s /bin/sh\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo cdist shell -s /bin/sh\n"
+      }
+    ]
+  }
+}

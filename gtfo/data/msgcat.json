@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "file-read": [
+      {
+        
+        "code": "LFILE=file_to_read\nmsgcat -P $LFILE\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "LFILE=file_to_read\nsudo msgcat -P $LFILE\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "LFILE=file_to_read\n./msgcat -P $LFILE\n"
+      }
+    ]
+  }
+}

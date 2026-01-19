@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "posh\n"
+      }
+    ],
+    "limited-suid": [
+      {
+        
+        "code": "./posh\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo posh\n"
+      }
+    ]
+  }
+}

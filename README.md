@@ -3,8 +3,8 @@
 # 🚀 GTFOBins CLI
 
 [![Python](https://img.shields.io/badge/Python-3.6%2B-blue?style=for-the-badge&logo=python)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-GPL%20v3-green?style=for-the-badge)](https://github.com/t0thkr1s/gtfobins-cli/blob/master/LICENSE)
-[![Stars](https://img.shields.io/github/stars/t0thkr1s/gtfobins-cli?style=for-the-badge)](https://github.com/t0thkr1s/gtfobins-cli/stargazers)
+[![License](https://img.shields.io/badge/License-GPL%20v3-green?style=for-the-badge)](https://github.com/kasem545/gtfobins-cli/blob/master/LICENSE)
+[![Stars](https://img.shields.io/github/stars/kasem545/gtfobins-cli?style=for-the-badge)](https://github.com/kasem545/gtfobins-cli/stargazers)
 
 </div>
 
@@ -15,6 +15,9 @@
 ### Key Features
 
 - 🔍 **Quick Binary Lookup**: Search exploitation techniques for any Unix binary
+- 🔎 **Fuzzy Search**: Find binaries with partial name matching
+- 🏷️ **Filter by Type**: Filter binaries by exploitation type (shell, suid, sudo, etc.)
+- 🖥️ **Interactive Mode**: fzf-style autocomplete for quick navigation
 - 🎨 **Syntax Highlighting**: Color-coded output for better readability
 - 📦 **Offline Database**: No internet connection required
 - 🚀 **Instant Access**: Fast, local searches with zero latency
@@ -22,17 +25,17 @@
 
 ## Installation
 
-### From PyPI (Recommended)
+### From pipx (Recommended)
 
 ```bash
-pip install gtfobins-cli
+pipx install git+https://github.com/kasem545/gtfobins-cli
 ```
 
 ### From Source
 
 ```bash
-git clone https://github.com/t0thkr1s/gtfo
-cd gtfo
+git clone https://github.com/kasem545/gtfobins-cli
+cd gtfobins-cli
 pip install -e .
 ```
 
@@ -53,9 +56,38 @@ gtfo sudo
 # Search for python exploitation techniques
 gtfo python
 
+# Fuzzy search binaries by name
+gtfo -s pyth
+
+# Filter binaries by exploitation type
+gtfo -f shell
+gtfo -f suid
+gtfo -f sudo
+
+# Show only specific technique for a binary
+gtfo python -f sudo
+
+# Interactive mode with autocomplete
+gtfo -i
+
+# List all available binaries
+gtfo -l
+
 # Check version
 gtfo --version
 ```
+
+### Command Line Options
+
+| Option | Description |
+|--------|-------------|
+| `binary` | Unix binary to search for exploitation techniques |
+| `-s, --search TERM` | Fuzzy search binaries by name |
+| `-f, --filter TYPE` | Filter binaries by exploitation type |
+| `-i, --interactive` | Interactive mode with autocomplete |
+| `-l, --list` | List all available binaries |
+| `-v, --version` | Show version |
+| `-h, --help` | Show help message |
 
 ## Exploitation Categories
 
@@ -80,10 +112,18 @@ The tool provides information about various exploitation techniques:
 ## Screenshots
 
 <p align="center">
-  <img src="https://i.imgur.com/1EzFiGQ.png" width="45%" alt="GTFOBins CLI Screenshot 1">
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://i.imgur.com/icgmDct.png" width="45%" alt="GTFOBins CLI Screenshot 2">
+  <img src="gtfo/images/sqlit3.png" width="45%">
+  <img src="gtfo/images/search-interactive.png" width="45%">
 </p>
+<p align="center">
+  <img src="gtfo/images/filter-with.png" width="45%">
+  <img src="gtfo/images/search-for.png" width="45%">
+</p>
+<p align="center">
+  <img src="gtfo/images/search-docker.png" width="45%">
+</p>
+
+
 
 ## Development
 
@@ -91,7 +131,7 @@ The tool provides information about various exploitation techniques:
 
 ```bash
 # Clone the repository
-git clone https://github.com/t0thkr1s/gtfo
+git clone https://github.com/kasem545/gtfobins-cli
 cd gtfo
 
 # Create virtual environment
@@ -126,7 +166,8 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 
 - Binary exploitation data from [GTFOBins](https://gtfobins.github.io/)
 - Original GTFOBins project contributors
-- Created and maintained by [t0thkr1s](https://github.com/t0thkr1s)
+- Created by [t0thkr1s](https://github.com/t0thkr1s) 
+- maintained by [kasem545](https://github.com/kasem545)
 
 ## Security Notice
 
@@ -146,6 +187,6 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 
 If you encounter any issues or have questions:
 
-- Open an [issue](https://github.com/t0thkr1s/gtfo/issues)
+- Open an [issue](https://github.com/kasem545/gtfobins-cli/issues)
 - Check existing issues for solutions
 - Consult the [GTFOBins website](https://gtfobins.github.io/) for additional information

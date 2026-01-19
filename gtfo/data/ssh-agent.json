@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "ssh-agent /bin/sh\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "./ssh-agent /bin/ -p\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo ssh-agent /bin/\n"
+      }
+    ]
+  }
+}

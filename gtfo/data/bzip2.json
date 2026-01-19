@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "file-read": [
+      {
+        
+        "code": "LFILE=file_to_read\nbzip2 -c $LFILE | bzip2 -d\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "LFILE=file_to_read\n./bzip2 -c $LFILE | bzip2 -d\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "LFILE=file_to_read\nsudo bzip2 -c $LFILE | bzip2 -d\n"
+      }
+    ]
+  }
+}

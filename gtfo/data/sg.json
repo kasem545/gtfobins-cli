@@ -8,6 +8,7 @@
     ],
     "sudo": [
       {
+        
         "code": "sudo sg root\n"
       }
     ]

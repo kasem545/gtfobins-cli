@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "fish\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "./fish\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo fish\n"
+      }
+    ]
+  }
+}

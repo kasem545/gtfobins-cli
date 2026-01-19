@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "file-read": [
+      {
+        
+        "code": "gcore $PID\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo gcore $PID\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "./gcore $PID\n"
+      }
+    ]
+  }
+}

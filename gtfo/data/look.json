@@ -2,17 +2,20 @@
   "functions": {
     "file-read": [
       {
-        "code": "look '' \"[file]\"\n"
+        
+        "code": "LFILE=file_to_read\nlook '' \"$LFILE\"\n"
       }
     ],
     "suid": [
       {
-        "code": "./look '' \"[file]\"\n"
+        
+        "code": "LFILE=file_to_read\n./look '' \"$LFILE\"\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo look '' \"[file]\"\n"
+        
+        "code": "LFILE=file_to_read\nsudo look '' \"$LFILE\"\n"
       }
     ]
   }

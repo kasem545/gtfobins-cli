@@ -1,19 +1,21 @@
 {
-  "description": "The read file content is corrupted by error prints.\n",
   "functions": {
     "file-read": [
       {
-        "code": "arp -v -f [file]\n"
+        
+        "code": "LFILE=file_to_read\narp -v -f \"$LFILE\"\n"
       }
     ],
     "suid": [
       {
-        "code": "./arp -v -f [file]\n"
+        
+        "code": "LFILE=file_to_read\n./arp -v -f \"$LFILE\"\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo arp -v -f [file]\n"
+        
+        "code": "LFILE=file_to_read\nsudo arp -v -f \"$LFILE\"\n"
       }
     ]
   }

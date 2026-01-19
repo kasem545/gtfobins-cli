@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "softlimit /bin/sh\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "./softlimit /bin/sh -p\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo softlimit /bin/sh\n"
+      }
+    ]
+  }
+}

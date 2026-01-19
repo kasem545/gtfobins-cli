@@ -2,17 +2,20 @@
   "functions": {
     "file-read": [
       {
-        "code": "cut -d \"\" -f1 [file]\n"
+        
+        "code": "LFILE=file_to_read\ncut -d \"\" -f1 \"$LFILE\"\n"
       }
     ],
     "suid": [
       {
-        "code": "./cut -d \"\" -f1 [file]\n"
+        
+        "code": "LFILE=file_to_read\n./cut -d \"\" -f1 \"$LFILE\"\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo cut -d \"\" -f1 [file]\n"
+        
+        "code": "LFILE=file_to_read\nsudo cut -d \"\" -f1 \"$LFILE\"\n"
       }
     ]
   }

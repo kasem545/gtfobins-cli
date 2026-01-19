@@ -2,20 +2,20 @@
   "functions": {
     "library-load": [
       {
-        "description": "",
-        "code": "ssh-keygen -D ./lib.so"
+        
+        "code": "ssh-keygen -D ./lib.so\n"
       }
     ],
     "sudo": [
       {
-        "description": "",
-        "code": "sudo ssh-keygen -D ./lib.so"
+        
+        "code": "sudo ssh-keygen -D ./lib.so\n"
       }
     ],
     "suid": [
       {
-        "description": "",
-        "code": "./ssh-keygen -D ./lib.so"
+        
+        "code": "./ssh-keygen -D ./lib.so\n"
       }
     ]
   }

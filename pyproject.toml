@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gtfobins-cli"
-version = "1.0.0"
+version = "1.1.0"
 authors = [
     {name = "t0thkr1s", email = "t0thkr1s@icloud.com"},
 ]
@@ -36,6 +36,7 @@ keywords = ["gtfobins", "security", "exploitation", "privilege-escalation", "pen
 dependencies = [
     "colorama>=0.4.0",
     "pygments>=2.0.0",
+    "prompt_toolkit>=3.0.0",
 ]
 
 [project.urls]

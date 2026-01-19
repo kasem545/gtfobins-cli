@@ -2,17 +2,20 @@
   "functions": {
     "shell": [
       {
-        "code": "nice /bin/sh"
+        
+        "code": "nice /bin/sh\n"
       }
     ],
     "suid": [
       {
-        "code": "./nice /bin/sh -p"
+        
+        "code": "./nice /bin/sh -p\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo nice /bin/sh"
+        
+        "code": "sudo nice /bin/sh\n"
       }
     ]
   }

@@ -1,19 +1,21 @@
 {
-  "description": "The read file content is corrupted by replacing tabs with spaces.",
   "functions": {
     "file-read": [
       {
-        "code": "expand \"[file]\"\n"
+        
+        "code": "LFILE=file_to_read\nexpand \"$LFILE\"\n"
       }
     ],
     "suid": [
       {
-        "code": "./expand \"[file]\"\n"
+        
+        "code": "LFILE=file_to_read\n./expand \"$LFILE\"\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo expand \"[file]\"\n"
+        
+        "code": "LFILE=file_to_read\nsudo expand \"$LFILE\"\n"
       }
     ]
   }

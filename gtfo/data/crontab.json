@@ -2,14 +2,14 @@
   "functions": {
     "command": [
       {
-        "description": "The commands are executed according to the crontab file edited via the 'crontab' utility.",
-        "code": "crontab -e"
+        "description": "The commands are executed according to the crontab file edited via the `crontab` utility.",
+        "code": "crontab -e\n"
       }
     ],
     "sudo": [
       {
-        "description": "The commands are executed according to the crontab file edited via the 'crontab' utility.",
-        "code": "sudo crontab -e"
+        "description": "The commands are executed according to the crontab file edited via the `crontab` utility.",
+        "code": "sudo crontab -e\n"
       }
     ]
   }

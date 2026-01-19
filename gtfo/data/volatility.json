@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "volatility -f file.dump volshell\n__import__('os').system('/bin/sh')\n"
+      }
+    ]
+  }
+}

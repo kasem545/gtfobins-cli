@@ -2,21 +2,25 @@
   "functions": {
     "shell": [
       {
+        
         "code": "TERM= more /etc/profile\n!/bin/sh\n"
       }
     ],
     "file-read": [
       {
-        "code": "more [file]"
+        
+        "code": "more file_to_read\n"
       }
     ],
     "suid": [
       {
-        "code": "./more [file]"
+        
+        "code": "./more file_to_read\n"
       }
     ],
     "sudo": [
       {
+        
         "code": "TERM= sudo more /etc/profile\n!/bin/sh\n"
       }
     ]

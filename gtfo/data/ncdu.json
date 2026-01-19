@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "ncdu\nb\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo ncdu\nb\n"
+      }
+    ],
+    "limited-suid": [
+      {
+        
+        "code": "./ncdu\nb\n"
+      }
+    ]
+  }
+}

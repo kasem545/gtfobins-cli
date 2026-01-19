@@ -1,0 +1,22 @@
+{
+  "functions": {
+    "shell": [
+      {
+        
+        "code": "tasksh\n!/bin/sh\n"
+      }
+    ],
+    "limited-suid": [
+      {
+        
+        "code": "./tasksh\n!/bin/sh\n"
+      }
+    ],
+    "sudo": [
+      {
+        
+        "code": "sudo tasksh\n!/bin/sh\n"
+      }
+    ]
+  }
+}

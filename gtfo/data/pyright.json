@@ -1,0 +1,32 @@
+{
+  "functions": {
+    "file-read": [
+      {
+        "binary": false,
+        "code": "pyright /path/to/input-file",
+        "comment": "Content is leaked as error messages.",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        }
+      },
+      {
+        "binary": false,
+        "code": "pyright --outputjson /path/to/input-file",
+        "comment": "Content is leaked as error messages in JSON format.",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        }
+      },
+      {
+        "code": "pyright -w /path/to/input-dir/",
+        "comment": "Recursively walks directories, parsing all Python files and leaking some contents through diagnostics.",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        }
+      }
+    ]
+  }
+}

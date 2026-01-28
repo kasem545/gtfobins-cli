@@ -8,6 +8,14 @@
       {
         
         "code": "vi\n:set shell=/bin/sh\n:shell\n"
+      },
+      {
+        
+        "code": "vi -c ':shell'"
+      },
+      {
+        
+        "code": "vi -c :terminal /bin/sh"
       }
     ],
     "file-write": [

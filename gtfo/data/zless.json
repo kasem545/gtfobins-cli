@@ -1,0 +1,15 @@
+{
+  "functions": {
+    "inherit": [
+      {
+        "code": "zless /path/to/input-file",
+        "contexts": {
+          "sudo": null,
+          "suid": null,
+          "unprivileged": null
+        },
+        "from": "less"
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "shell": [
+      {
+        "code": "firejail /bin/sh",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        }
+      }
+    ]
+  }
+}

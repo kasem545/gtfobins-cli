@@ -1,0 +1,14 @@
+{
+  "functions": {
+    "inherit": [
+      {
+        "code": "cargo help doc",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        },
+        "from": "less"
+      }
+    ]
+  }
+}

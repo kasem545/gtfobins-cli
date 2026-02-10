@@ -3,7 +3,7 @@
     "file-read": [
       {
         "binary": false,
-        "code": "gcc -x c -E /path/to/input-file\n",
+        "code": "g++ -x c -E /path/to/input-file\n",
         "contexts": {
           "sudo": null,
           "unprivileged": null
@@ -11,7 +11,7 @@
       },
       {
         "binary": false,
-        "code": "gcc @/path/to/input-file\n",
+        "code": "g++ @/path/to/input-file\n",
         "comment": "The file is read and parsed as a list of files (one per line), the content is displayed as error messages.",
         "contexts": {
           "sudo": null,
@@ -21,7 +21,7 @@
     ],
     "file-write": [
       {
-        "code": "gcc -x c /dev/null -o /path/to/input-file\n",
+        "code": "g++ -x c /dev/null -o /path/to/input-file\n",
         "comment": "This actually deletes the file.",
         "contexts": {
           "sudo": null,
@@ -31,8 +31,7 @@
     ],
     "shell": [
       {
-        "code": "gcc -wrapper /bin/sh,-s x\n",
-        "comment": "Any existing file can be used instead of `x`, as `gcc` only needs a valid file argument to proceed before `-wrapper` takes effect.",
+        "code": "g++ -wrapper /bin/sh,-s x\n",
         "contexts": {
           "sudo": null,
           "unprivileged": null

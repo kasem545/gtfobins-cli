@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "shell": [
+      {
+        "code": "temp_dir=/path/to/temp-dir\nmkdir -p \"$temp_dir/etc/pacman.d\"\ngrep -oP \"^CHROOT_VERSION='\\K[^']+\" /usr/share/devtools/lib/archroot.sh > \"$temp_dir/.arch-chroot\"\ntouch \"$temp_dir/etc/pacman.conf\" \"$temp_dir/etc/pacman.d/mirrorlist\"\necho 'CARCH=true;/bin/sh;exit' > \"$temp_dir/etc/makepkg.conf\"\narch-nspawn $temp_dir",
+        "contexts": {
+          "sudo": null,
+          "suid": null
+        }
+      }
+    ]
+  }
+}

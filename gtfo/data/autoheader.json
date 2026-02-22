@@ -1,0 +1,12 @@
+{
+  "functions": {
+    "shell": [
+      {
+        "code": "cd /path/to/temp-dir\ntouch configure.ac\necho '/bin/sh' > sh\nchmod +x sh\nAUTOM4TE='/path/to/temp-dir/sh' autoheader",
+        "contexts": {
+          "sudo": null
+        }
+      }
+    ]
+  }
+}

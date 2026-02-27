@@ -1,0 +1,24 @@
+{
+  "functions": {
+    "inherit": [
+      {
+        "code": "opencode db",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        },
+        "from": "sqlite3"
+      }
+    ],
+    "shell": [
+      {
+        "code": "opencode\n!",
+        "contexts": {
+          "sudo": null,
+          "suid": null,
+          "unprivileged": null
+        }
+      }
+    ]
+  }
+}

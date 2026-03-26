@@ -3,8 +3,8 @@
 # 🚀 GTFOBins CLI
 
 [![Python](https://img.shields.io/badge/Python-3.6%2B-blue?style=for-the-badge&logo=python)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-GPL%20v3-green?style=for-the-badge)](https://github.com/kasem545/gtfobins-cli/blob/master/LICENSE)
-[![Stars](https://img.shields.io/github/stars/kasem545/gtfobins-cli?style=for-the-badge)](https://github.com/kasem545/gtfobins-cli/stargazers)
+[![License](https://img.shields.io/badge/License-GPL%20v3-green?style=for-the-badge)](https://github.com/t0thkr1s/gtfobins-cli/blob/master/LICENSE)
+[![Stars](https://img.shields.io/github/stars/t0thkr1s/gtfobins-cli?style=for-the-badge)](https://github.com/t0thkr1s/gtfobins-cli/stargazers)
 
 </div>
 
@@ -28,13 +28,13 @@
 ### From pipx (Recommended)
 
 ```bash
-pipx install git+https://github.com/kasem545/gtfobins-cli
+pipx install git+https://github.com/t0thkr1s/gtfobins-cli
 ```
 
 ### From Source
 
 ```bash
-git clone https://github.com/kasem545/gtfobins-cli
+git clone https://github.com/t0thkr1s/gtfobins-cli
 cd gtfobins-cli
 pip install -e .
 ```
@@ -131,7 +131,7 @@ The tool provides information about various exploitation techniques:
 
 ```bash
 # Clone the repository
-git clone https://github.com/kasem545/gtfobins-cli
+git clone https://github.com/t0thkr1s/gtfobins-cli
 cd gtfo
 
 # Create virtual environment
@@ -187,6 +187,6 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 
 If you encounter any issues or have questions:
 
-- Open an [issue](https://github.com/kasem545/gtfobins-cli/issues)
+- Open an [issue](https://github.com/t0thkr1s/gtfobins-cli/issues)
 - Check existing issues for solutions
 - Consult the [GTFOBins website](https://gtfobins.github.io/) for additional information

@@ -1,0 +1,15 @@
+{
+  "functions": {
+    "file-read": [
+      {
+        "binary": true,
+        "code": "codex sandbox linux cat /path/to/input-file",
+        "contexts": {
+          "sudo": null,
+          "suid": null,
+          "unprivileged": null
+        }
+      }
+    ]
+  }
+}

